@@ -1,0 +1,107 @@
+<div style="height: 50px">
+  <app-alert></app-alert>
+</div>
+
+<form
+  #callbackNewForm="ngForm"
+  (ngSubmit)="onSubmit(callbackNewForm)"
+  novalidate
+>
+  <div class="form-group">
+    <label class="control-label">First Name</label>
+    <input
+      type="text"
+      name="firstName"
+      class="form-control"
+      [(ngModel)]="callbackUser.firstName"
+      #firstName="ngModel"
+      required
+    />
+    <div
+      [hidden]="!(firstName.invalid && firstName.touched)"
+      class="text-danger"
+    >
+      <small>First name is requried</small>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label">Last Name</label>
+    <input
+      type="text"
+      name="lastName"
+      class="form-control"
+      [(ngModel)]="callbackUser.lastName"
+      #lastName="ngModel"
+      required
+    />
+    <div [hidden]="!(lastName.invalid && lastName.touched)" class="text-danger">
+      <small>Last name is requried</small>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label">Mobile Number</label>
+    <input
+      type="text"
+      pattern="^[\d]*$"
+      name="mobileNumber"
+      class="form-control"
+      [(ngModel)]="callbackUser.mobileNumber"
+      #mobileNumber="ngModel"
+      required
+    />
+    <div
+      [hidden]="!(mobileNumber.invalid && mobileNumber.touched)"
+      class="text-danger"
+    >
+      <small>Mobile number is requried</small>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label">Date</label>
+    <input
+      type="date"
+      name="callbackDate"
+      class="form-control"
+      [(ngModel)]="callbackUser.callbackDate"
+      #callbackDate="ngModel"
+      required
+    />
+    <div
+      [hidden]="!(callbackDate.invalid && callbackDate.touched)"
+      class="text-danger"
+    >
+      <small>Callback Date is requried</small>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label">Time</label>
+    <input
+      type="time"
+      name="callbackTime"
+      class="form-control"
+      [(ngModel)]="callbackUser.callbackTime"
+      #callbackTime="ngModel"
+      min="09:00"
+      max="18:00"
+      required
+    />
+    <div
+      [hidden]="!(callbackTime.invalid && callbackTime.touched)"
+      class="text-danger"
+    >
+      <small>Callback Time is requried</small>
+    </div>
+  </div>
+
+  <button
+    [disabled]="!callbackNewForm.form.valid"
+    class="btn btn-primary mb-3"
+    type="submit"
+  >
+    Add Callback
+  </button>
+</form>

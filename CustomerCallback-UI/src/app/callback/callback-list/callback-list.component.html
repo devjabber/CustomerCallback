@@ -1,0 +1,22 @@
+<div style="height: 50px">
+  <app-alert></app-alert>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Mobile Number</th>
+      <th scope="col">Call Date & Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let callback of callbacks">
+      <td>{{ callback.firstName }}</td>
+      <td>{{ callback.lastName }}</td>
+      <td>{{ callback.mobileNumber }}</td>
+      <td>{{ callback.callbackDateTime | date: "medium" }}</td>
+    </tr>
+  </tbody>
+</table>
