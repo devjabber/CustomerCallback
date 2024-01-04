@@ -1,4 +1,4 @@
-# Animal Friends Customer Callback Service
+# Customer Callback Service
 
 This application was developed using .Net Core and Angular, and consists of a simple C# class library based service layer with an EF Core based repository hooked up to a web api on the server side.
 
